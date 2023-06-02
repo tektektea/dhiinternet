@@ -1,64 +1,59 @@
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html {
-    font-family: "Rubik", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Titillium Web', sans-serif;
 }
-body {
-    @apply bg-white-500;
+.text-page-header{
+    font-size: 32px;
 }
-p {
-    @apply text-black-500;
+.text-lg{
+    font-size: 21px;
 }
-.animation-hover:after {
-    background: none repeat scroll 0 0 transparent;
-    content: "";
-    height: 2px;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    @apply w-0 bg-orange-500 left-1/2 block bottom-0 absolute;
+.text-md{
+    font-size: 16px;
 }
-.animation-active:after {
-    @apply left-0 w-full;
-}
-.animation-hover:hover:after {
-    @apply left-0 w-full;
+.text-sm{
+    font-size: 10px;
 }
 
-li.custom-list:before {
-    content: "\2022"; /* bullet point, for screen readers */
-    text-indent: -9999999px; /* move the bullet point out of sight */
-
-    width: 0.4em;
-    height: 1em;
-    background-repeat: no-repeat;
-
-    background-size: 0.4em 0.7em;
-    background-position: 0 0.3em;
-    font-size: 300%;
-    top: -0.35em;
-    @apply absolute block;
+@media (max-width: 599px) {
+    .container{
+        padding: 8px;
+    }
 }
-li.circle-check:before {
-    /*background-image: url("/assets/Icon/checklist.svg");*/
-    left: -0.7em;
-    top: -0.4em;
+@media (max-width: 1024px) {
+    .container {
+        max-width: 900px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 6px;
+        padding-right: 6px;
+    }
 }
-li.check:before {
-    left: -0.5em;
-    /*background-image: url("/assets/Icon/jam_check.svg");*/
-    top: -0.5em;
-    font-size: 400%;
-}
-/* Slideshow */
-.slick-dots li {
-    @apply inline-block;
-}
-.slick-dots span {
-    @apply bg-gray-500;
-}
-.slick-dots .slick-active span {
-    @apply bg-orange-500 rounded-l-full rounded-r-full w-12;
+@media (max-width:1439px) {
+    .container {
+        max-width: 1100px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 6px;
+        padding-right: 6px;
+    }
 }
 
+@media (max-width: 1919px) {
+    .container {
+        max-width: 1250px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+}
+@media print {
+    .container{
+        position: absolute;
+        top: 12px;
+        width: 100%;
+    }
+}
