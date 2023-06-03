@@ -1,7 +1,7 @@
 <template>
     <q-layout view="hHh LpR fff">
-        <q-header class="text-dark">
-            <q-toolbar class="brand-header flex justify-center">
+        <q-header class="text-white ">
+            <q-toolbar class="brand-header text-dark flex justify-center">
                 <div class="flex justify-between items-center container full-width">
                     <div class="flex q-gutter-sm">
                         <q-btn icon="menu" @click="toggleLeftDrawer"/>
@@ -41,13 +41,10 @@
             <slot/>
         </q-page-container>
 
-        <q-footer elevated class="bg-grey-8 text-white">
+        <q-footer  class="bg-dark text-white">
             <q-toolbar>
                 <q-toolbar-title>
-                    <q-avatar>
-                        <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
-                    </q-avatar>
-                    <div>Title</div>
+                    <div>Follow us on</div>
                 </q-toolbar-title>
             </q-toolbar>
         </q-footer>
