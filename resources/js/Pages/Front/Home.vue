@@ -1,9 +1,13 @@
 <template>
+    <Head>
+        <title>Home</title>
+        <meta name="description" content="Internet rintlak leh chaktha duh tan a chenfakawm"/>
+    </Head>
     <q-page class="container">
         <div style="min-width: 540px" class="row ">
             <div class="col-xs-12 col-sm-6">
                 <div class="text-italic text-md column justify-center full-height">
-                    <h1 class="hero-title">
+                    <h1 class="hero-title text-accent">
                         DHIINTERNET
                     </h1>
                     <p class="text-italic text-lg text-grey-7">Internet chak leh tha, rinthlak bawk si office leh mahni chenna a hmang duh tan</p>
@@ -31,23 +35,29 @@
         </div>
         <div class="flex justify-between items-center">
             <div class="feature-card column q-gutter-sm justify-center items-center  ">
-                <q-icon size="64px" color="accent" name="sentiment_very_satisfied"/>
+                <q-avatar size="120px">
+                    <q-img width="150px" src="assets/images/happy_customer.svg"/>
+                </q-avatar>
                 <div>
                     <p class="feature-title">More than 2k</p>
                     <p class="text-caption q-ma-none text-grey-7">Satisfied Customer</p>
                 </div>
             </div>
             <div class="feature-card column q-gutter-sm justify-center items-center ">
-                <q-icon size="64px" color="accent" name="sentiment_very_satisfied"/>
+                <q-avatar size="120px">
+                    <q-img width="150px" src="assets/images/map.svg"/>
+                </q-avatar>
                 <div>
                     <p class="feature-title">Champhai</p>
-                    <p class="text-caption q-ma-none text-grey-7">Region Covered</p>
+                    <p class="text-caption q-ma-none text-grey-7">Covered Region</p>
                 </div>
             </div>
             <div class="feature-card column q-gutter-sm justify-center items-center ">
-                <q-icon size="64px" color="accent" name="sentiment_very_satisfied"/>
+                <q-avatar size="120px">
+                    <q-img width="150px" src="assets/images/customer_support.svg"/>
+                </q-avatar>
                 <div>
-                    <p class="feature-title">24x7 Customer Support</p>
+                    <p class="feature-title">24x7 Support</p>
                     <p class="text-caption q-ma-none text-grey-7">
                         We provide a service related help to cover 24x7
                     </p>
@@ -65,7 +75,7 @@
         <div class="flex justify-between items-center ">
             <div class="column q-gutter-md justify-center items-center testimonial-card">
                 <q-avatar rounded>
-                    <q-img width="150" :ratio="1" src="assets/images/person.png"/>
+                    <q-img width="150" :ratio="1" src="assets/images/people-1.png"/>
                 </q-avatar>
                 <p class="text-lg text-bold">Lalrinawma</p>
                 <p class="text-caption text-grey-7">CEO Airtel</p>
@@ -76,9 +86,9 @@
 
             <div class="column q-gutter-md justify-center items-center testimonial-card">
                 <q-avatar rounded>
-                    <q-img width="150" :ratio="1" src="assets/images/person.png"/>
+                    <q-img width="150" :ratio="1" src="assets/images/people-3.png"/>
                 </q-avatar>
-                <p class="text-lg text-bold">Sangkimi</p>
+                <p class="text-lg text-bold">Sangkima</p>
                 <p class="text-caption text-grey-7">Sales Manager HDFC</p>
                 <blockquote class="text-quote">
                     "A tha in a van rinthlak em"
@@ -87,9 +97,9 @@
 
             <div class="column q-gutter-md justify-center items-center testimonial-card">
                 <q-avatar rounded>
-                    <q-img width="150" :ratio="1" src="assets/images/person.png"/>
+                    <q-img width="150" :ratio="1" src="assets/images/people-2.png"/>
                 </q-avatar>
-                <p class="text-lg text-bold ">Jeremy Lalrinawma</p>
+                <p class="text-lg text-bold ">Juliati</p>
                 <p class="text-caption text-grey-7 ">Manager ICICI</p>
                 <blockquote class="text-quote">
                     "DHIInternet ka dawr chinah chang dang ka kan thei ta lo,"
@@ -204,8 +214,7 @@
             <q-expansion-item
                 class=" overflow-hidden text-lg"
                 icon="info"
-                label="Engtia booking tih tur nge"
-            >
+                label="Engtia booking tih tur nge">
                 <q-card>
                     <q-card-section>
                         Hre bik nang
@@ -219,7 +228,7 @@
     </q-page>
 </template>
 <script setup>
-
+import {Head} from '@inertiajs/vue3';
 </script>
 <style scoped>
 p{

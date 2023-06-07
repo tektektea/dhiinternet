@@ -1,4 +1,10 @@
 {
+  "_QPage-38c1913f.js": {
+    "file": "assets/QPage-38c1913f.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
   "node_modules/@quasar/extras/material-icons-outlined/web-font/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUcY.woff": {
     "file": "assets/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUcY-8e94758c.woff",
     "src": "node_modules/@quasar/extras/material-icons-outlined/web-font/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUcY.woff"
@@ -15,23 +21,40 @@
     "file": "assets/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ-4a4dbc62.woff2",
     "src": "node_modules/@quasar/extras/material-icons/web-font/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2"
   },
-  "resources/js/Pages/Home.css": {
-    "file": "assets/Home-d99ccfb1.css",
-    "src": "resources/js/Pages/Home.css"
+  "resources/js/Pages/Front/ContactPage.css": {
+    "file": "assets/ContactPage-68aaa8cb.css",
+    "src": "resources/js/Pages/Front/ContactPage.css"
   },
-  "resources/js/Pages/Home.vue": {
+  "resources/js/Pages/Front/ContactPage.vue": {
     "css": [
-      "assets/Home-d99ccfb1.css"
+      "assets/ContactPage-68aaa8cb.css"
     ],
-    "file": "assets/Home-9da8afec.js",
+    "file": "assets/ContactPage-85682f80.js",
     "imports": [
+      "_QPage-38c1913f.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/js/Pages/Home.vue"
+    "src": "resources/js/Pages/Front/ContactPage.vue"
+  },
+  "resources/js/Pages/Front/Home.css": {
+    "file": "assets/Home-5a16ce2a.css",
+    "src": "resources/js/Pages/Front/Home.css"
+  },
+  "resources/js/Pages/Front/Home.vue": {
+    "css": [
+      "assets/Home-5a16ce2a.css"
+    ],
+    "file": "assets/Home-76a2ba97.js",
+    "imports": [
+      "resources/js/app.js",
+      "_QPage-38c1913f.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Front/Home.vue"
   },
   "resources/js/Pages/Welcome.vue": {
-    "file": "assets/Welcome-4aa15ebb.js",
+    "file": "assets/Welcome-5b199805.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -39,7 +62,7 @@
     "src": "resources/js/Pages/Welcome.vue"
   },
   "resources/js/app.css": {
-    "file": "assets/app-d7bebb27.css",
+    "file": "assets/app-6a910c26.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -50,13 +73,14 @@
       "assets/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUcY-8e94758c.woff"
     ],
     "css": [
-      "assets/app-d7bebb27.css"
+      "assets/app-6a910c26.css"
     ],
     "dynamicImports": [
-      "resources/js/Pages/Home.vue",
+      "resources/js/Pages/Front/ContactPage.vue",
+      "resources/js/Pages/Front/Home.vue",
       "resources/js/Pages/Welcome.vue"
     ],
-    "file": "assets/app-1b402e3a.js",
+    "file": "assets/app-b4ebc338.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

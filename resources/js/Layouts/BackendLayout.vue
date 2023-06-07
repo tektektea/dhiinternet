@@ -4,10 +4,10 @@
             <q-toolbar class="brand-header text-dark flex justify-center">
                 <div class="flex justify-between items-center container full-width">
                     <div class="flex q-gutter-sm">
-                        <q-btn icon="menu" @click="toggleLeftDrawer"/>
-                        <div class="text-lg">DHIINTERNET</div>
+                        <q-btn  v-if="$q.screen.lt.sm" icon="menu" flat @click="toggleLeftDrawer"/>
+                        <div @click="$inertia.visit(route('page.home'))" class="text-lg  text-bold">DHIINTERNET</div>
                     </div>
-                    <div class="flex q-gutter-sm text-md">
+                    <div v-if="$q.screen.gt.sm" class="flex q-gutter-sm text-md">
                         <q-item clickable>
                             <q-item-section>
                                 <q-item-label>Plans</q-item-label>
@@ -18,7 +18,7 @@
                                 <q-item-label>Our Team</q-item-label>
                             </q-item-section>
                         </q-item>
-                        <q-item clickable>
+                        <q-item :href="route('page.contact')" clickable>
                             <q-item-section>
                                 <q-item-label>Contact Us</q-item-label>
                             </q-item-section>
@@ -33,7 +33,7 @@
             </q-toolbar>
         </q-header>
 
-        <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered>
+        <q-drawer v-model="leftDrawerOpen" side="left" bordered>
             <!-- drawer content -->
         </q-drawer>
 

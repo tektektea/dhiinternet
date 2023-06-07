@@ -18,16 +18,15 @@ import GuestLayout from '@/Layouts/GuestLayout.vue'
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
 createInertiaApp({
-    title: (title) => `${title} - ${appName}`,
+    title: (title) => `${title} : ${appName}`,
     resolve: name => {
-        console.log('name ',name)
         const page = resolvePageComponent(
             `./Pages/${name}.vue`,
             import.meta.glob("./Pages/**/*.vue")
         );
 
         page.then((module) => {
-            module.default.layout = name.startsWith('Front/') ?GuestLayout: BackendLayout;
+            module.default.layout = name.startsWith('Auth/') ?GuestLayout: BackendLayout;
         });
 
         return page;
