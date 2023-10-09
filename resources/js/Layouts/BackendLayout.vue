@@ -52,21 +52,31 @@
     </q-layout>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
+import {useQuasar} from "quasar";
+import {computed,watch} from "vue";
+import {usePage} from "@inertiajs/vue3";
 
-export default {
-    setup () {
-        const leftDrawerOpen = ref(false)
 
-        return {
-            leftDrawerOpen,
-            toggleLeftDrawer () {
-                leftDrawerOpen.value = !leftDrawerOpen.value
-            }
-        }
-    }
+const q = useQuasar();
+const leftDrawerOpen = ref(false)
+
+const notification=computed(()=>usePage().props.flash_notification)
+
+function toggleLeftDrawer () {
+    leftDrawerOpen.value = !leftDrawerOpen.value
 }
+
+watch(notification,(newVal,oldVal)=>{
+    if (newVal) {
+        const {type, message} = newVal;
+        q.notify({type,message,closeBtn:true,classes:'accent'})
+    }
+    console.log('test')
+
+},{immediate:true})
+
 </script>
 <style scoped>
 .brand-header{

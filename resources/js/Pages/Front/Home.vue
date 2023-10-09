@@ -229,6 +229,11 @@
 </template>
 <script setup>
 import {Head} from '@inertiajs/vue3';
+import BackendLayout from "@/Layouts/BackendLayout.vue";
+
+defineOptions({
+    layout: BackendLayout
+})
 </script>
 <style scoped>
 p{

@@ -1,11 +1,8 @@
 <?php
 
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\SectionController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +19,12 @@ Route::controller(PageController::class)->group(function (){
     Route::get('/contact', 'contact')->name('page.contact');
     Route::get('/about', 'about')->name('page.about');
     Route::get('/booking', 'booking')->name('page.booking');
+});
+Route::group(['prefix'=>'auth',], function () {
+    Route::get('login',[\App\Http\Controllers\Auth\AuthenticatedSessionController::class,'create'])->name('login');
+});
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('section', SectionController::class);
 });
 
 //Route::get('/dashboard', function () {
