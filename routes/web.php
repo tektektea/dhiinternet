@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SectionController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -19,12 +21,22 @@ Route::controller(PageController::class)->group(function (){
     Route::get('/contact', 'contact')->name('page.contact');
     Route::get('/about', 'about')->name('page.about');
     Route::get('/booking', 'booking')->name('page.booking');
+    Route::get('/privacy', 'booking')->name('page.privacy');
+    Route::get('/term', 'booking')->name('page.term');
+    Route::get('/refund', 'booking')->name('page.refund');
+    Route::get('/about', 'booking')->name('page.about');
 });
+Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
 Route::group(['prefix'=>'auth',], function () {
     Route::get('login',[\App\Http\Controllers\Auth\AuthenticatedSessionController::class,'create'])->name('login');
+    Route::post('login', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store'])->name('login.store');
+    Route::delete('login', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])->name('login.destroy');
 });
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['prefix'=>'admin','middleware' => ['auth']], function () {
     Route::resource('section', SectionController::class);
+    Route::resource('user', SectionController::class);
+    Route::get('role', [RoleController::class,'index'])->name('role.index');
+
 });
 
 //Route::get('/dashboard', function () {

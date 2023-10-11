@@ -1,5 +1,5 @@
 <template>
-    <q-layout class="bg-dark ">
+    <q-layout class="">
         <q-page-container>
             <q-page class="login-page">
                 <div class="row items-stretch">
@@ -10,15 +10,24 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div class="login-card flex items-center justify-center">
-                            <div class="card-content column">
+                            <q-form @submit="onSubmit" class="card-content column">
                                 <div class="head-content text-center">
                                     <div class="login-title text-primary">LOGIN</div>
                                     <div class="text-sm text-bold text-grey-7">DHIINTERNET Portal</div>
                                 </div>
                                 <q-separator class="q-my-md"/>
-
+                                <q-item v-if="!!form?.errors?.email" class="q-my-sm rounded-borders ">
+                                    <q-item-section avatar>
+                                        <q-icon color="red" name="error"/>
+                                    </q-item-section>
+                                    <q-item-section>
+                                        <q-item-label class="text-negative text-italic">{{form.errors?.email}}</q-item-label>
+                                    </q-item-section>
+                                    <q-item-section side>
+                                        <q-btn @click="form.errors={}" color="negative" flat icon="o_close" size="sm"/>
+                                    </q-item-section>
+                                </q-item>
                                 <q-input v-model="form.email"
-                                         dark
                                          label="Email/Mobile"
                                          outlined
                                          :rules="[
@@ -28,7 +37,6 @@
                                          no-error-icon
                                 />
                                 <q-input v-model="form.password"
-                                         dark
                                          :type="state.type"
                                          label="Password"
                                          outlined
@@ -48,11 +56,11 @@
                                     <q-btn class="q-pa-none text-grey-7" flat label="Forgot Password?" no-caps/>
                                 </div>
                                 <div class="flex justify-between items-stretch q-gutter-md">
-                                    <q-btn class="fit text-secondary"  label="Login" color="primary" no-caps/>
-                                    <q-btn class="fit" label="Back to Home" outline color="negative"  no-caps/>
+                                    <q-btn type="submit" class="fit text-secondary"  label="Login" color="primary" no-caps/>
+                                    <q-btn @click="$inertia.get(route('page.home'))" class="fit" label="Back to Home" outline color="negative"  no-caps/>
                                 </div>
 
-                            </div>
+                            </q-form>
                         </div>
                     </div>
                 </div>
@@ -65,7 +73,9 @@
 import {useForm} from "@inertiajs/vue3";
 import {reactive} from 'vue';
 import InternetSvg from "@/Components/InternetSvg.vue";
+import {useQuasar} from "quasar";
 
+const q = useQuasar();
 const state=reactive({
     type:'password',
 })
@@ -74,11 +84,18 @@ const form=useForm({
     password:''
 })
 
+const onSubmit=e=>{
+    form.post(route('login.store'),{
+        onStart:params => q.loading.show(),
+        onFinish:params => q.loading.hide()
+    })
+}
+
 </script>
 <style scoped>
 .login-page{
-    background: rgb(84,15,118);
-    background: linear-gradient(157deg, rgba(84,15,118,1) 0%, rgba(205,56,190,1) 15%, rgba(15,14,14,1) 49%, rgba(22,12,54,1) 100%);
+    /*background: rgb(84,15,118);*/
+    /*background: linear-gradient(157deg, rgba(84,15,118,1) 0%, rgba(205,56,190,1) 15%, rgba(15,14,14,1) 49%, rgba(22,12,54,1) 100%);*/
 }
 .login-title{
     font-size: 32px;

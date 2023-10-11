@@ -5,7 +5,7 @@ import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
-import {Dialog, Loading, Notify, Quasar} from 'quasar'
+import {Dialog, Loading, Notify, QSpinnerFacebook, Quasar} from 'quasar'
 // Import icon libraries
 import '@quasar/extras/material-icons/material-icons.css'
 import '@quasar/extras/material-icons-outlined/material-icons-outlined.css'
@@ -16,6 +16,11 @@ import 'quasar/src/css/index.sass'
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
+Loading.setDefaults({
+    spinner: QSpinnerFacebook,
+    spinnerColor: '$primary',
+    spinnerSize: 140,
+})
 createInertiaApp({
     title: (title) => `${title} ${appName}`,
     resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),

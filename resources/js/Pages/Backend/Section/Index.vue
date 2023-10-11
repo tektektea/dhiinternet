@@ -14,6 +14,10 @@
                         <div v-html="item.content"/>
                     </section>
                 </div>
+                <div class="flex q-gutter-md">
+                    <q-btn flat label="Edit"/>
+                    <q-btn color="negative" flat label="Delete"/>
+                </div>
 
             </div>
 

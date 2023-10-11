@@ -1,10 +1,10 @@
 <template>
-    <q-layout view="hHh LpR fff">
+    <q-layout view="lhh LpR fff">
         <q-header class="text-white ">
             <q-toolbar class="brand-header text-dark flex justify-center">
                 <div class="flex justify-between items-center container full-width">
                     <div class="flex q-gutter-sm">
-                        <q-btn  v-if="$q.screen.lt.sm" icon="menu" flat @click="toggleLeftDrawer"/>
+                        <q-btn  v-if="!!currentUser" icon="menu" flat @click="toggleLeftDrawer"/>
                         <div @click="$inertia.visit(route('page.home'))" class="text-lg  text-bold">DHIINTERNET</div>
                     </div>
                     <div v-if="$q.screen.gt.sm" class="flex q-gutter-sm text-md">
@@ -25,7 +25,14 @@
                         </q-item>
                     </div>
                     <div class="flex q-gutter-sm">
-                        <q-btn style="min-width: 120px" outline rounded color="primary" label="Login" no-caps/>
+                        <q-btn-dropdown class="text-bold" v-if="!!currentUser" :label="'Hello, '+currentUser?.name">
+                            <q-list>
+                                <q-item clickable><q-item-section>Profile</q-item-section></q-item>
+                                <q-item clickable><q-item-section>Change password</q-item-section></q-item>
+                                <q-item clickable @click="$inertia.delete(route('login.destroy'))"><q-item-section>Logout</q-item-section></q-item>
+                            </q-list>
+                        </q-btn-dropdown>
+                        <q-btn v-else class="sized-btn"  @click="$inertia.get(route('login'))"  outline rounded color="primary" label="Login" no-caps/>
 
                     </div>
                 </div>
@@ -35,18 +42,15 @@
 
         <q-drawer v-model="leftDrawerOpen" side="left" bordered>
             <!-- drawer content -->
+            <SideNav/>
         </q-drawer>
 
         <q-page-container>
             <slot/>
         </q-page-container>
 
-        <q-footer  class="bg-dark text-white">
-            <q-toolbar>
-                <q-toolbar-title>
-                    <div>Follow us on</div>
-                </q-toolbar-title>
-            </q-toolbar>
+        <q-footer class="bg-grey-2">
+           <Footer/>
         </q-footer>
 
     </q-layout>
@@ -57,16 +61,21 @@ import { ref } from 'vue'
 import {useQuasar} from "quasar";
 import {computed,watch} from "vue";
 import {usePage} from "@inertiajs/vue3";
-
+import Footer from "@/Components/Footer.vue";
+import SideNav from "@/Components/SideNav.vue";
 
 const q = useQuasar();
-const leftDrawerOpen = ref(false)
+const leftDrawerOpen = ref(true)
 
 const notification=computed(()=>usePage().props.flash_notification)
 
 function toggleLeftDrawer () {
     leftDrawerOpen.value = !leftDrawerOpen.value
 }
+
+const currentUser=computed(()=>{
+    return usePage().props.auth?.user;
+})
 
 watch(notification,(newVal,oldVal)=>{
     if (newVal) {
