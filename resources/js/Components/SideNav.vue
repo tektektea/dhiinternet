@@ -19,6 +19,8 @@
 import {ref} from "vue";
 
 const menus=ref([
-    {id:1,icon:'o_dashboard',label:'Dashboard',route:'dashboard'}
+    {id:1,icon:'o_dashboard',label:'Dashboard',route:'dashboard'},
+    {id:2,icon:'o_dashboard',label:'Section',route:'section.index'},
+    {id:3,icon:'o_dashboard',label:'Plans',route:'plan.index'},
 ])
 </script>

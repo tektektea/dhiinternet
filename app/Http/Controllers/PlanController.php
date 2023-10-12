@@ -2,24 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Plan;
 use App\Models\Section;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-class SectionController extends Controller
+class PlanController extends Controller
 {
     public function index(Request $request)
     {
-
-        return inertia('Backend/Section/Index',[
-            'list' => Section::query()->orderBy('order')->get(),
+        return inertia('Backend/Plan/Index', [
+            'list' => Plan::query()->get(),
         ]);
     }
 
     public function create(Request $request)
     {
-        return inertia('Backend/Section/Create', [
+        return inertia('Backend/Plan/Create');
+    }
 
+    public function edit(Request $request, Plan $plan)
+    {
+        return inertia('Backend/Plan/Edit', [
+            'item'=>$plan
         ]);
     }
 
@@ -28,47 +33,42 @@ class SectionController extends Controller
 
         $data=$this->validate($request, [
             'name' => 'required',
-            'order' => ['required',Rule::unique('sections')],
-            'content' => 'required'
+            'fee' => 'required:numeric',
+            'card' => 'required'
         ]);
-        Section::query()->create($data);
+        Plan::query()->create($data);
         session()->flash('flash-message',[
             'message'=>'Section Created Successfully',
             'type'=>'positive'
         ]);
-        return to_route('section.index');
+        return to_route('plan.index');
+
     }
 
-    public function edit(Request $request,Section $section)
-    {
-        return inertia('Backend/Section/Edit', [
-            'item' => $section
-        ]);
-    }
-
-    public function update(Request $request,Section $section)
+    public function update(Request $request, Plan $plan)
     {
         $data=$this->validate($request, [
             'name' => 'required',
-            'order' => ['required',Rule::unique('sections')->ignore($section->id)],
-            'content' => 'required'
+            'fee' => 'required:numeric',
+            'card' => 'required'
         ]);
-        $section->update($data);
-
+        $plan->update($data);
         session()->flash('flash-message',[
             'message'=>'Section Updated Successfully',
             'type'=>'positive'
         ]);
-        return to_route('section.index');
+        return to_route('plan.index');
     }
 
-    public function destroy(Request $request, Section $section)
+    public function destroy(Request $request, Plan $plan)
     {
-        $section->delete();
+        $plan->delete();
         session()->flash('flash-message',[
             'message'=>'Section Deleted Successfully',
             'type'=>'positive'
         ]);
-        return to_route('section.index');
+        return to_route('plan.index');
     }
+
+
 }

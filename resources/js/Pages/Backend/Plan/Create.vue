@@ -1,15 +1,16 @@
 <template>
-    <q-page class="container bg-white" padding>
+    <q-page class="container " padding>
         <q-breadcrumbs gutter="md">
             <q-breadcrumbs-el label="Dashboard" />
-            <q-breadcrumbs-el @click="$inertia.get(route('section.index'))" label="Sections" />
-            <q-breadcrumbs-el @click="$inertia.get(route('section.create'))" label="New Section" />
+            <q-breadcrumbs-el @click="$inertia.get(route('plan.index'))" label="Sections" />
+            <q-breadcrumbs-el @click="$inertia.get(route('plan.create'))" label="New Plan" />
         </q-breadcrumbs>
-        <div class="flex justify-between items-center">
-            <div class="text-lg text-dark text-weight-medium">New Section</div>
+        <br/>
+        <div class="flex justify-between items-center q-pa-md bg-white">
+            <div class="text-lg text-dark text-weight-medium">New Plan</div>
         </div>
         <br/>
-        <q-form @submit="handleSubmit" class="column q-gutter-sm">
+        <q-form @submit="handleSubmit" class="column bg-white q-pa-md">
             <q-input v-model="form.name"
                      outlined
                      label="Name"
@@ -19,18 +20,18 @@
                          val=>!!val || 'Name is required'
                      ]"
             />
-            <q-input v-model="form.order"
+            <q-input v-model="form.fee"
                      type="number"
                      outlined
-                     label="Order"
-                     :error="!!form?.errors?.order"
-                     :error-message="form?.errors?.order?.toString()"
+                     label="Fee"
+                     :error="!!form?.errors?.fee"
+                     :error-message="form?.errors?.fee?.toString()"
                      :rules="[
-                         val=>!!val || 'Order is required'
+                         val=>!!val || 'Fee is required'
                      ]"
             />
             <q-editor
-                v-model="form.content"
+                v-model="form.card"
                 :toolbar="[
                     [  {
                         label: $q.lang.editor.align,
@@ -63,7 +64,7 @@
                     ['viewsource']
                 ]" min-height="5rem"/>
 
-            <div class="flex q-gutter-sm">
+            <div class="flex q-gutter-sm q-mt-sm">
                 <q-btn type="submit" color="primary" class="sized-btn" label="Save"/>
                 <q-btn type="reset" color="negative" outline class="sized-btn" label="Cancel"/>
             </div>
@@ -83,12 +84,12 @@ defineOptions({
 const q = useQuasar();
 const form=useForm({
     name:'',
-    order:1,
-    content:''
+    fee:1,
+    card:''
 })
 
 const handleSubmit=e=>{
-    form.post(route('section.store'),{
+    form.post(route('plan.store'),{
         onStart:params => q.loading.show(),
         onFinish:params => q.loading.hide()
     })

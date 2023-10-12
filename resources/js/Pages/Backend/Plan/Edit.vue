@@ -1,36 +1,37 @@
 <template>
-    <q-page class="container bg-white" padding>
-        <q-breadcrumbs gutter="md">
-            <q-breadcrumbs-el label="Dashboard" />
-            <q-breadcrumbs-el @click="$inertia.get(route('section.index'))" label="Sections" />
-            <q-breadcrumbs-el @click="$inertia.get(route('section.create'))" label="New Section" />
+    <q-page class="container" padding>
+        <q-breadcrumbs>
+            <q-breadcrumbs-el label="Dashboard" @click="$inertia.get(route('dashboard'))"/>
+            <q-breadcrumbs-el label="Plans" @click="$inertia.get(route('plan.index'))"/>
+            <q-breadcrumbs-el label="Edit" @click="$inertia.get(route('plan.edit',item.id))"/>
         </q-breadcrumbs>
-        <div class="flex justify-between items-center">
-            <div class="text-lg text-dark text-weight-medium">New Section</div>
+        <br/>
+        <div class="flex justify-between items-center bg-white q-pa-md">
+            <div class="text-lg text-dark text-weight-medium">{{ item.name }}</div>
         </div>
         <br/>
-        <q-form @submit="handleSubmit" class="column q-gutter-sm">
+        <q-form class="column q-gutter-sm bg-white q-pa-md" @submit="handleSubmit">
             <q-input v-model="form.name"
-                     outlined
-                     label="Name"
                      :error="!!form?.errors?.name"
                      :error-message="form?.errors?.name?.toString()"
                      :rules="[
                          val=>!!val || 'Name is required'
                      ]"
-            />
-            <q-input v-model="form.order"
-                     type="number"
+                     label="Name"
                      outlined
-                     label="Order"
-                     :error="!!form?.errors?.order"
-                     :error-message="form?.errors?.order?.toString()"
+            />
+            <q-input v-model="form.fee"
+                     :error="!!form?.errors?.fee"
+                     :error-message="form?.errors?.fee?.toString()"
                      :rules="[
-                         val=>!!val || 'Order is required'
+                         val=>!!val || 'Fee is required'
                      ]"
+                     label="Fee"
+                     outlined
+                     type="number"
             />
             <q-editor
-                v-model="form.content"
+                v-model="form.card"
                 :toolbar="[
                     [  {
                         label: $q.lang.editor.align,
@@ -64,8 +65,8 @@
                 ]" min-height="5rem"/>
 
             <div class="flex q-gutter-sm">
-                <q-btn type="submit" color="primary" class="sized-btn" label="Save"/>
-                <q-btn type="reset" color="negative" outline class="sized-btn" label="Cancel"/>
+                <q-btn class="sized-btn" color="primary" label="Save" type="submit"/>
+                <q-btn class="sized-btn" color="negative" label="Cancel" outline type="reset"/>
             </div>
         </q-form>
     </q-page>
@@ -77,20 +78,20 @@ import {useForm} from "@inertiajs/vue3";
 import {useQuasar} from "quasar";
 
 defineOptions({
-    layout:BackendLayout
+    layout: BackendLayout
 })
-
+const props = defineProps(['item'])
 const q = useQuasar();
-const form=useForm({
-    name:'',
-    order:1,
-    content:''
+const form = useForm({
+    name: props?.item?.name,
+    fee: props?.item?.fee,
+    card: props?.item?.card
 })
 
-const handleSubmit=e=>{
-    form.post(route('section.store'),{
-        onStart:params => q.loading.show(),
-        onFinish:params => q.loading.hide()
+const handleSubmit = e => {
+    form.put(route('plan.update', props.item.id), {
+        onStart: params => q.loading.show(),
+        onFinish: params => q.loading.hide()
     })
 }
 </script>

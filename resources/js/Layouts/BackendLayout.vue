@@ -67,7 +67,7 @@ import SideNav from "@/Components/SideNav.vue";
 const q = useQuasar();
 const leftDrawerOpen = ref(true)
 
-const notification=computed(()=>usePage().props.flash_notification)
+const notification=computed(()=>usePage().props?.flash)
 
 function toggleLeftDrawer () {
     leftDrawerOpen.value = !leftDrawerOpen.value

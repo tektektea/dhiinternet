@@ -1,15 +1,16 @@
 <template>
-    <q-page class="container bg-white" padding>
-        <q-breadcrumbs gutter="md">
-            <q-breadcrumbs-el label="Dashboard" />
+    <q-page class="container" padding>
+        <q-breadcrumbs>
+            <q-breadcrumbs-el @click="$inertia.get(route('dashboard'))" label="Dashboard" />
             <q-breadcrumbs-el @click="$inertia.get(route('section.index'))" label="Sections" />
-            <q-breadcrumbs-el @click="$inertia.get(route('section.create'))" label="New Section" />
+            <q-breadcrumbs-el @click="$inertia.get(route('section.edit',item.id))" label="Edit" />
         </q-breadcrumbs>
-        <div class="flex justify-between items-center">
-            <div class="text-lg text-dark text-weight-medium">New Section</div>
+        <br/>
+        <div class="flex justify-between items-center bg-white q-pa-md">
+            <div class="text-lg text-dark text-weight-medium">{{item.name}}</div>
         </div>
         <br/>
-        <q-form @submit="handleSubmit" class="column q-gutter-sm">
+        <q-form @submit="handleSubmit" class="column q-gutter-sm bg-white q-pa-md">
             <q-input v-model="form.name"
                      outlined
                      label="Name"
@@ -79,16 +80,16 @@ import {useQuasar} from "quasar";
 defineOptions({
     layout:BackendLayout
 })
-
+const props=defineProps(['item'])
 const q = useQuasar();
 const form=useForm({
-    name:'',
-    order:1,
-    content:''
+    name:props?.item?.name,
+    order:props?.item?.order,
+    content:props?.item?.content
 })
 
 const handleSubmit=e=>{
-    form.post(route('section.store'),{
+    form.put(route('section.update',props.item.id),{
         onStart:params => q.loading.show(),
         onFinish:params => q.loading.hide()
     })
