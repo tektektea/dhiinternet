@@ -1,26 +1,73 @@
 <template>
     <Head>
         <title>Home</title>
-        <meta name="description" content="Internet rintlak leh chaktha duh tan a chenfakawm"/>
+        <meta name="description" content="Mizoram chhunga Internet rintlak leh chak tha duh tan biak theih reng kan ni"/>
     </Head>
-    <q-page>
+    <q-page class="bg-dark">
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <div  style="margin-top:auto;margin-bottom: auto">
-                    <h1 class="hero-text"><span class="text-primary"> DHI</span> INTERNET</h1>
-                    <div class="text-secondary text-lg">Mizoram Internet Service Provider Chak tha leh ropui</div>
-                    <br/>
-                    <br/>
-                    <div class="text-lg text-weight-medium text-grey-7">Call Us : 8987878887/1231312</div>
-                    <br/>
-                    <button class="hero-btn">Book Now</button>
+                <div class="flex justify-end">
+                    <div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <q-item class="watch-btn">
+                            <q-item-section>
+                                <q-item-label>Click here to watch our stories</q-item-label>
+                            </q-item-section>
+                            <q-item-section side>
+                                <q-icon name="chevron_right"/>
+                            </q-item-section>
+                        </q-item>
+                        <h5 class="hero-title text-white"><span class="text-primary text-weight-bolder">Connecting</span>  You to Tomorrow, Today!</h5>
+                        <div class="text-accent text-lg">Internet Chak tha leh rintlak i hmang duh em?</div>
+                        <div class="text-md text-weight-bolder text-weight-medium text-white">Call Us : +919862614297</div>
+                        <br/>
+                        <div class="flex q-gutter-sm">
+                            <q-btn :href="route('page.booking')" style="width: 230px" class="text-white" size="xl"  color="primary" label="Book Now" no-caps/>
+                            <q-separator dark vertical/>
+                            <q-btn class="text-white" size="xl" icon="chat" outline color="secondary" label="Let's Chat" no-caps/>
+                        </div>
+                    </div>
                 </div>
+
             </div>
             <div class="col-xs-6">
-                <q-img src="https://img.freepik.com/free-vector/flat-people-with-wifi-sign-background_23-2148198524.jpg?w=826&t=st=1697105821~exp=1697106421~hmac=cdebb85a9b7ad7902adc0a7d1271e451b5c673891cb8ea2a1503f16bfd80b381"/>
+                <div class="relative-position">
+                    <video width="600" loop autoplay>
+                        <source src="https://github.githubassets.com/images/modules/site/home/globe-500.h264.mp4" type="video/mp4" />
+                        <p>
+                            Your browser doesn't support HTML video. Here is a
+                            <a href="https://github.githubassets.com/images/modules/site/home/globe-500.h264.mp4">link to the video</a> instead.
+                        </p>
+                    </video>
+
+
+                </div>
             </div>
         </div>
+        <br/>
+        <br/>
         <div class="container">
+            <div  class="bg-secondary rounded-borders q-pa-md">
+                <q-timeline dark color="white">
+                    <q-timeline-entry class="text-bold" heading>
+                        Our Stories
+                    </q-timeline-entry>
+
+                    <q-timeline-entry
+                        title="Rising Day"
+                        subtitle="February 22, 2020"
+                    >
+                        <div>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+                    </q-timeline-entry>
+                </q-timeline>
+            </div>
+
             <br/>
             <br/>
             <section v-for="item in sections" :key="item.id">
@@ -29,8 +76,8 @@
             <br/>
             <br/>
             <!--        PLANS-->
-            <div class="full-width text-center text-page-header q-my-lg text-grey-9">
-                Plans
+            <div class="full-width text-center text-page-header q-my-lg text-white text-bold">
+               Our Plans
             </div>
             <br/>
             <section class="row q-col-gutter-md" >
@@ -39,42 +86,20 @@
                 </div>
             </section>
             <!--        TESTIMONIAL-->
-            <div class="full-width text-center text-page-header q-my-lg text-grey-9">
-                Testmonials
+            <div class="full-width text-center text-page-header q-my-lg text-white text-bold">
+                Testimonial
             </div>
-            <div class="flex justify-between items-center ">
-                <div class="column q-gutter-md justify-center items-center testimonial-card">
-                    <q-avatar rounded>
-                        <q-img width="150" :ratio="1" src="assets/images/people-1.png"/>
-                    </q-avatar>
-                    <p class="text-lg text-bold">Lalrinawma</p>
-                    <p class="text-caption text-grey-7">CEO Airtel</p>
-                    <blockquote class="text-quote">
-                        "Interet Tha leh rintlak hnathawk nan a duhthusam ngei mai ka hmu ve ta e,"
-                    </blockquote>
+            <div class="row q-col-gutter-md">
+                <div v-for="item in testimonial" class="col-xs-6 col-sm-3">
+                    <div class="column items-center">
+                        <q-avatar>
+                            <q-img :src="item.url"/>
+                        </q-avatar>
+                        <div v-html="item.content"/>
+                    </div>
+
                 </div>
 
-                <div class="column q-gutter-md justify-center items-center testimonial-card">
-                    <q-avatar rounded>
-                        <q-img width="150" :ratio="1" src="assets/images/people-3.png"/>
-                    </q-avatar>
-                    <p class="text-lg text-bold">Sangkima</p>
-                    <p class="text-caption text-grey-7">Sales Manager HDFC</p>
-                    <blockquote class="text-quote">
-                        "A tha in a van rinthlak em"
-                    </blockquote>
-                </div>
-
-                <div class="column q-gutter-md justify-center items-center testimonial-card">
-                    <q-avatar rounded>
-                        <q-img width="150" :ratio="1" src="assets/images/people-2.png"/>
-                    </q-avatar>
-                    <p class="text-lg text-bold ">Juliati</p>
-                    <p class="text-caption text-grey-7 ">Manager ICICI</p>
-                    <blockquote class="text-quote">
-                        "DHIInternet ka dawr chinah chang dang ka kan thei ta lo,"
-                    </blockquote>
-                </div>
             </div>
             <br/>
             <br/>
@@ -83,31 +108,18 @@
 
 
             <br/>
-            <div class="full-width text-center text-page-header q-my-lg text-grey-9">
+            <div class="full-width text-center text-page-header q-my-lg text-white text-bold">
                 Frequently Asked Question
             </div>
-            <q-list style="border-radius: 20px"  class="bg-white shadow-1 rounded-borders">
-                <q-expansion-item
-                    class=" overflow-hidden text-lg"
-                    icon="info"
-                    label="Enge in that bikna"
+            <q-list style="border-radius: 20px"  class=" shadow-up-8 rounded-borders">
+                <q-expansion-item  v-for="question in questions"
+                    class=" overflow-hidden text-weight-medium text-md text-accent"
+                    icon="o_help"
+                    :label="question.question"
                 >
-                    <q-card>
-                        <q-card-section>
-                            Hre bik nang
-                        </q-card-section>
-                    </q-card>
+                    <div class="q-pa-md" v-html="question.answer"/>
                 </q-expansion-item>
-                <q-expansion-item
-                    class=" overflow-hidden text-lg"
-                    icon="info"
-                    label="Engtia booking tih tur nge">
-                    <q-card>
-                        <q-card-section>
-                            Hre bik nang
-                        </q-card-section>
-                    </q-card>
-                </q-expansion-item>
+
             </q-list>
             <br/>
             <br/>
@@ -125,7 +137,7 @@ defineOptions({
     layout: BackendLayout
 })
 
-const props=defineProps(['sections','plans'])
+const props=defineProps(['sections','plans','questions','testimonial'])
 
 </script>
 <style scoped>
@@ -134,7 +146,8 @@ p{
 }
 .hero-title{
     font-weight: 700;
-    font-size: 42px;
+    font-size: 36px;
+    line-height: 0.3;
 }
 .book-btn{
     font-size: 21px;
@@ -168,5 +181,15 @@ p{
     border-radius: 21px;
     padding: 16px 24px;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.16);
+}
+.watch-btn{
+    width: 290px;
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-width: 2px;
+    border-style: solid;
+    font-size: 14px;
+    color: #eae8e8;
+    border-color: #0d47a1;
 }
 </style>

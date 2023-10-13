@@ -3,8 +3,10 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\TestimonyController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -20,12 +22,11 @@ use Illuminate\Support\Facades\Route;
 Route::controller(PageController::class)->group(function (){
     Route::get('/', 'home')->name('page.home');
     Route::get('/contact', 'contact')->name('page.contact');
-    Route::get('/about', 'about')->name('page.about');
     Route::get('/booking', 'booking')->name('page.booking');
-    Route::get('/privacy', 'booking')->name('page.privacy');
-    Route::get('/term', 'booking')->name('page.term');
-    Route::get('/refund', 'booking')->name('page.refund');
-    Route::get('/about', 'booking')->name('page.about');
+    Route::get('/privacy', 'privacy')->name('page.privacy');
+    Route::get('/term', 'term')->name('page.term');
+    Route::get('/refund', 'refund')->name('page.refund');
+    Route::get('/about', 'about')->name('page.about');
 });
 Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
 Route::group(['prefix'=>'auth',], function () {
@@ -37,6 +38,9 @@ Route::group(['prefix'=>'admin','middleware' => ['auth']], function () {
     Route::resource('section', SectionController::class);
     Route::resource('user', SectionController::class);
     Route::resource('plan', PlanController::class);
+    Route::resource('page', PageController::class);
+    Route::resource('question', QuestionController::class);
+    Route::resource('testimony', TestimonyController::class);
     Route::get('role', [RoleController::class,'index'])->name('role.index');
 
 });

@@ -1,0 +1,27 @@
+<template>
+    <Head>
+        <title>Term and Conditions</title>
+        <meta name="description" content="Term and condition ">
+    </Head>
+    <q-page class="container  text-accent">
+        <div v-html="data.content"/>
+    </q-page>
+</template>
+<script setup>
+import {Head, useForm} from '@inertiajs/vue3';
+import BackendLayout from '@/Layouts/BackendLayout.vue'
+
+defineOptions({
+    layout:BackendLayout
+})
+defineProps(['data']);
+
+</script>
+<style scoped>
+.contact-card{
+    background-color: white;
+    color: #444444;
+    border-radius: 16px;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.16);
+}
+</style>

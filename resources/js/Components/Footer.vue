@@ -1,22 +1,31 @@
 <template>
-    <div class="flex justify-between footer-card container">
+    <div class="my-footer">
+        <div class="flex justify-between footer-card container text-lg">
 
-        <div class="column">
-            <a :href="route('page.privacy')" class="footer-link">Privacy</a>
-            <a :href="route('page.term')" class="footer-link">Terms and Condition</a>
-            <a :href="route('page.refund')" class="footer-link">Refund Policy</a>
-            <a :href="route('page.about')" class="footer-link">About us</a>
+            <div class="text-white text-bold text-xl">
+                Follow us on
+            </div>
+            <div class="flex q-gutter-md">
+                <a :href="route('page.privacy')" class="footer-link">Facebook</a>
+                <a :href="route('page.term')" class="footer-link">Instagram</a>
+                <a :href="route('page.refund')" class="footer-link">Twitter</a>
+            </div>
         </div>
-        <div class="flex bg-white q-gutter-sm">
-            <q-icon name="facebook"/>
-        </div>
-        <div class="text-dark text-weight-medium">
-            <address>Venglai</address>
-            <address>Champhai </address>
-            <address>Mizoram </address>
-            <address>796001 </address>
+        <q-separator/>
+        <div class="flex justify-between footer-card container text-lg text-grey-7">
+
+            <div class=" text-weight-medium footer-link">
+                © 2023 dhiinternet. All rights reserved.
+            </div>
+            <div class="flex q-gutter-md">
+                <a :href="route('page.privacy')" class="footer-link">Privacy</a>
+                <a :href="route('page.term')" class="footer-link">Terms and Condition</a>
+                <a :href="route('page.refund')" class="footer-link">Refund Policy</a>
+                <a :href="route('page.about')" class="footer-link">About us</a>
+            </div>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -28,11 +37,13 @@ import Instagram from "@/Components/Instagram.vue";
 .footer-card{
     padding-top: 32px;
     padding-bottom: 32px;
-    background-color: #f5f5f5;
 }
 .footer-link{
     text-decoration: none;
-    color: #444444;
+    color: #959da5;
     font-weight: 600;
+}
+.my-footer{
+    background-color: #161b22;
 }
 </style>

@@ -112,3 +112,10 @@
 .sized-btn {
     min-width: 120px;
 }
+.q-breadcrumbs{
+    color: #6b6969 !important;
+    font-weight: 600;
+}
+.q-item__section--avatar{
+    min-width: 23px !important;
+}

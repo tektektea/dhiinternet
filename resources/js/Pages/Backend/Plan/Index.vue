@@ -1,6 +1,6 @@
 <template>
     <q-page class="container" padding>
-        <q-breadcrumbs>
+        <q-breadcrumbs class="text-grey-7">
             <q-breadcrumbs-el @click="$inertia.get(route('dashboard'))" label="Dashboard" />
             <q-breadcrumbs-el label="Plans" />
         </q-breadcrumbs>

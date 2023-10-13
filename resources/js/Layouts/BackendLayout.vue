@@ -1,29 +1,29 @@
 <template>
-    <q-layout view="lhh LpR fff">
-        <q-header class="text-white ">
-            <q-toolbar class="brand-header text-dark flex justify-center">
+    <q-layout view="hHh LpR fff">
+        <q-header elevated class="bg-dark ">
+            <q-toolbar  class="flex justify-center myheader">
                 <div class="flex justify-between items-center container full-width">
                     <div class="flex q-gutter-sm">
                         <q-btn  v-if="!!currentUser" icon="menu" flat @click="toggleLeftDrawer"/>
-                        <div @click="$inertia.visit(route('page.home'))" class="text-lg  text-bold">DHIINTERNET</div>
+                        <div @click="$inertia.visit(route('page.home'))" class="text-lg  text-weight-bolder cursor-pointer"><span class="text-primary">DHI</span>INTERNET</div>
                     </div>
-                    <div v-if="$q.screen.gt.sm" class="flex q-gutter-sm text-md">
-                        <q-item clickable>
-                            <q-item-section>
-                                <q-item-label>Plans</q-item-label>
-                            </q-item-section>
-                        </q-item>
-                        <q-item clickable>
-                            <q-item-section>
-                                <q-item-label>Our Team</q-item-label>
-                            </q-item-section>
-                        </q-item>
-                        <q-item :href="route('page.contact')" clickable>
-                            <q-item-section>
-                                <q-item-label>Contact Us</q-item-label>
-                            </q-item-section>
-                        </q-item>
-                    </div>
+<!--                    <div v-if="$q.screen.gt.sm" class="flex q-gutter-sm text-md bg-dark">-->
+<!--                        <q-item clickable>-->
+<!--                            <q-item-section>-->
+<!--                                <q-item-label>Plans</q-item-label>-->
+<!--                            </q-item-section>-->
+<!--                        </q-item>-->
+<!--                        <q-item clickable>-->
+<!--                            <q-item-section>-->
+<!--                                <q-item-label>Our Team</q-item-label>-->
+<!--                            </q-item-section>-->
+<!--                        </q-item>-->
+<!--                        <q-item :href="route('page.contact')" clickable>-->
+<!--                            <q-item-section>-->
+<!--                                <q-item-label>Contact Us</q-item-label>-->
+<!--                            </q-item-section>-->
+<!--                        </q-item>-->
+<!--                    </div>-->
                     <div class="flex q-gutter-sm">
                         <q-btn-dropdown class="text-bold" v-if="!!currentUser" :label="'Hello, '+currentUser?.name">
                             <q-list>
@@ -32,7 +32,7 @@
                                 <q-item clickable @click="$inertia.delete(route('login.destroy'))"><q-item-section>Logout</q-item-section></q-item>
                             </q-list>
                         </q-btn-dropdown>
-                        <q-btn v-else class="sized-btn"  @click="$inertia.get(route('login'))"  outline rounded color="primary" label="Login" no-caps/>
+                        <q-btn v-else class="sized-btn"  @click="$inertia.get(route('login'))"  outline rounded color="white" label="Login" no-caps/>
 
                     </div>
                 </div>
@@ -40,16 +40,16 @@
             </q-toolbar>
         </q-header>
 
-        <q-drawer v-model="leftDrawerOpen" side="left" bordered>
+        <q-drawer dark v-if="!!$page.props.auth?.user" v-model="leftDrawerOpen" side="left" bordered>
             <!-- drawer content -->
             <SideNav/>
         </q-drawer>
 
-        <q-page-container>
+        <q-page-container :class="!!$page.props.auth?.user ? 'bg-grey-2':'bg-dark'">
             <slot/>
         </q-page-container>
 
-        <q-footer class="bg-grey-2">
+        <q-footer class="bg-dark">
            <Footer/>
         </q-footer>
 
@@ -65,7 +65,7 @@ import Footer from "@/Components/Footer.vue";
 import SideNav from "@/Components/SideNav.vue";
 
 const q = useQuasar();
-const leftDrawerOpen = ref(true)
+const leftDrawerOpen = ref(false)
 
 const notification=computed(()=>usePage().props?.flash)
 
@@ -90,7 +90,9 @@ watch(notification,(newVal,oldVal)=>{
 <style scoped>
 .brand-header{
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.16);
-    background-color: #fff;
+    height: 70px;
+}
+.myheader{
     height: 70px;
 }
 </style>
