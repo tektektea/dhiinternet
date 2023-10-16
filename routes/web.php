@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PlanController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\TestimonyController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(PageController::class)->group(function (){
     Route::get('/', 'home')->name('page.home');
     Route::get('/contact', 'contact')->name('page.contact');
-    Route::get('/booking', 'booking')->name('page.booking');
+    Route::get('/customer-booking', 'booking')->name('page.booking');
     Route::get('/privacy', 'privacy')->name('page.privacy');
     Route::get('/term', 'term')->name('page.term');
     Route::get('/refund', 'refund')->name('page.refund');
@@ -41,10 +43,10 @@ Route::group(['prefix'=>'admin','middleware' => ['auth']], function () {
     Route::resource('page', PageController::class);
     Route::resource('question', QuestionController::class);
     Route::resource('testimony', TestimonyController::class);
-    Route::get('role', [RoleController::class,'index'])->name('role.index');
-
+    Route::resource('booking', BookingController::class);
+    Route::resource('user', UserController::class);
 });
-
+Route::post('/booking/booking', [BookingController::class, 'book'])->name('booking.booking');
 //Route::get('/dashboard', function () {
 //    return Inertia::render('Dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');

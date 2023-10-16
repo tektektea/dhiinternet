@@ -1,11 +1,13 @@
 <template>
-    <q-layout view="hHh LpR fff">
+    <q-layout view="lHh LpR fff">
         <q-header elevated class="bg-dark ">
             <q-toolbar  class="flex justify-center myheader">
                 <div class="flex justify-between items-center container full-width">
                     <div class="flex q-gutter-sm">
                         <q-btn  v-if="!!currentUser" icon="menu" flat @click="toggleLeftDrawer"/>
-                        <div @click="$inertia.visit(route('page.home'))" class="text-lg  text-weight-bolder cursor-pointer"><span class="text-primary">DHI</span>INTERNET</div>
+                        <div @click="$inertia.visit(route('page.home'))" class="text-lg flex items-center  text-weight-bolder cursor-pointer">
+                            <img width="52" src="/assets/Icon/logo.png"/> <span style="color: #2b57ab" v-if="$q.screen.gt.sm">DHI<span style="color: #f24baf">INTERNET</span></span>
+                        </div>
                     </div>
 <!--                    <div v-if="$q.screen.gt.sm" class="flex q-gutter-sm text-md bg-dark">-->
 <!--                        <q-item clickable>-->
@@ -40,7 +42,7 @@
             </q-toolbar>
         </q-header>
 
-        <q-drawer dark v-if="!!$page.props.auth?.user" v-model="leftDrawerOpen" side="left" bordered>
+        <q-drawer dark v-if="!!$page.props.auth?.user" v-model="leftDrawerOpen" side="left" elevated width="250">
             <!-- drawer content -->
             <SideNav/>
         </q-drawer>

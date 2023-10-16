@@ -4,7 +4,7 @@
             <q-page class="login-page">
                 <div class="row items-stretch">
                     <div class="col-xs-12 col-sm-6">
-                        <div style="height: 100vh" class="flex items-center justify-center">
+                        <div v-if="$q.screen.gt.sm"  class=" flex items-center justify-center q-pa-lg">
                             <InternetSvg width="70%"/>
                         </div>
                     </div>
@@ -111,5 +111,17 @@ const onSubmit=e=>{
 }
 .card-content{
     width: 50%;
+}
+.left{
+    height: 100vh;
+}
+@media (max-width: 599px) {
+    .card-content {
+        padding: 16px;
+        width: 100%;
+    }
+    .left{
+        width: 30vh;
+    }
 }
 </style>

@@ -7,44 +7,54 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <div class="flex justify-end">
-                    <div>
+                    <div class="q-pa-md relative-position">
+                        <video v-if="$q.screen.lt.sm" style="z-index: 1" class="absolute-top " width="320" loop autoplay>
+                            <source src="https://github.githubassets.com/images/modules/site/home/globe-500.h264.mp4" type="video/mp4" />
+                            <p>
+                                Your browser doesn't support HTML video. Here is a
+                                <a href="https://github.githubassets.com/images/modules/site/home/globe-500.h264.mp4">link to the video</a> instead.
+                            </p>
+                        </video>
                         <br/>
                         <br/>
                         <br/>
                         <br/>
                         <br/>
-                        <q-item class="watch-btn">
-                            <q-item-section>
-                                <q-item-label>Click here to watch our stories</q-item-label>
-                            </q-item-section>
-                            <q-item-section side>
-                                <q-icon name="chevron_right"/>
-                            </q-item-section>
-                        </q-item>
-                        <h5 class="hero-title text-white"><span class="text-primary text-weight-bolder">Connecting</span>  You to Tomorrow, Today!</h5>
-                        <div class="text-accent text-lg">Internet Chak tha leh rintlak i hmang duh em?</div>
-                        <div class="text-md text-weight-bolder text-weight-medium text-white">Call Us : +919862614297</div>
-                        <br/>
-                        <div class="flex q-gutter-sm">
-                            <q-btn :href="route('page.booking')" style="width: 230px" class="text-white" size="xl"  color="primary" label="Book Now" no-caps/>
-                            <q-separator dark vertical/>
-                            <q-btn class="text-white" size="xl" icon="chat" outline color="secondary" label="Let's Chat" no-caps/>
+                        <div class="relative-position " style="z-index: 1000">
+                            <q-item class="watch-btn">
+                                <q-item-section>
+                                    <q-item-label>Click here to watch our stories</q-item-label>
+                                </q-item-section>
+                                <q-item-section side>
+                                    <q-icon name="chevron_right"/>
+                                </q-item-section>
+                            </q-item>
+                            <h5 class="hero-title text-white"><span style="color: #f24baf" class=" text-weight-bolder">Connecting</span>  You to Tomorrow, Today!</h5>
+                            <div class="text-accent text-lg">Internet Chak tha leh rintlak i hmang duh em?</div>
+                            <div class="text-md text-weight-bolder text-weight-medium text-white">Call Us : +919862614297</div>
+                            <br/>
+                            <div class="flex q-gutter-sm">
+                                <q-btn  :href="route('page.booking')" style="width: 230px;color: #f24baf" class="text-white" size="xl"  color="primary" label="Book Now" no-caps/>
+                                <q-separator dark vertical/>
+                                <q-btn href="https://wa.me/919862614297" class="text-white" size="xl" icon="chat" outline color="secondary" label="Let's Chat" no-caps/>
+                            </div>
                         </div>
+
+
                     </div>
                 </div>
 
             </div>
             <div class="col-xs-6">
-                <div class="relative-position">
-                    <video width="600" loop autoplay>
+                <div v-if="$q.screen.gt.sm" class="relative-position">
+
+                    <video width="550" loop autoplay>
                         <source src="https://github.githubassets.com/images/modules/site/home/globe-500.h264.mp4" type="video/mp4" />
                         <p>
                             Your browser doesn't support HTML video. Here is a
                             <a href="https://github.githubassets.com/images/modules/site/home/globe-500.h264.mp4">link to the video</a> instead.
                         </p>
                     </video>
-
-
                 </div>
             </div>
         </div>
@@ -147,7 +157,7 @@ p{
 .hero-title{
     font-weight: 700;
     font-size: 36px;
-    line-height: 0.3;
+    line-height: 1;
 }
 .book-btn{
     font-size: 21px;

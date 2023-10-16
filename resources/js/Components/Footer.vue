@@ -5,10 +5,17 @@
             <div class="text-white text-bold text-xl">
                 Follow us on
             </div>
-            <div class="flex q-gutter-md">
-                <a :href="route('page.privacy')" class="footer-link">Facebook</a>
-                <a :href="route('page.term')" class="footer-link">Instagram</a>
-                <a :href="route('page.refund')" class="footer-link">Twitter</a>
+            <div class="flex items-center q-gutter-md">
+                <a :href="route('page.privacy')" class="footer-link">
+                    <img src="/assets/Icon/facebook.svg"/>
+                </a>
+                <a :href="route('page.term')" class="footer-link">
+                    <img src="/assets/Icon/instagram.svg"/>
+                </a>
+                <a :href="route('page.refund')" class="footer-link">
+                    <img class="text-primary" src="/assets/Icon/twitter.svg"/>
+
+                </a>
             </div>
         </div>
         <q-separator/>
