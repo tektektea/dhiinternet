@@ -91,7 +91,7 @@
             </div>
             <br/>
             <section class="row q-col-gutter-md" >
-                <div v-for="item in plans" :key="item.id" class="col-xs-12 col-sm-3">
+                <div v-for="item in plans" :key="item.id" class="col-xs-12 col-sm-4">
                     <div v-html="item?.card"/>
                 </div>
             </section>
