@@ -60,18 +60,8 @@
         </div>
         <br/>
         <br/>
-        <div class="container">
-            <div v-if="sections.length>0" class="full-width text-center text-page-header q-my-lg text-white text-bold">
-                Why Choose Us
-            </div>
 
-            <div class="flex justify-center q-gutter-sm items-center">
-                <section v-for="item in sections" :key="item.id">
-                    <div v-html="item?.content"/>
-                </section>
-            </div>
-            <br/>
-            <br/>
+        <div class="container">
             <div  v-if="stories.length>0" class="bg-secondary rounded-borders q-pa-md">
                 <q-timeline dark color="white">
                     <q-timeline-entry class="text-bold" heading>
@@ -91,6 +81,18 @@
 
             <br/>
             <br/>
+            <div v-if="sections.length>0" class="full-width text-center text-page-header q-my-lg text-white text-bold">
+                Why Choose Us
+            </div>
+
+            <div class="flex justify-center q-gutter-sm items-center">
+                <section v-for="item in sections" :key="item.id">
+                    <div v-html="item?.content"/>
+                </section>
+            </div>
+            <br/>
+            <br/>
+
             <!--        PLANS-->
             <div class="full-width text-center text-page-header q-my-lg text-white text-bold">
                Our Plans
