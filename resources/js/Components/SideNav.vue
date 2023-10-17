@@ -28,6 +28,7 @@ const menus=ref([
     {id:2,icon:'o_source',label:'Section',route:'section.index'},
     {id:3,icon:'o_local_offer',label:'Plans',route:'plan.index'},
     {id:4,icon:'o_description',label:'Pages',route:'page.index'},
+    {id:4,icon:'o_web_stories',label:'Stories',route:'story.index'},
     {id:5,icon:'o_info',label:'FAQ',route:'question.index'},
     {id:6,icon:'o_speaker_notes',label:'Testimonial',route:'testimony.index'},
     {id:7,icon:'o_storefront',label:'User Accounts',route:'user.index'},

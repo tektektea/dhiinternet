@@ -61,28 +61,34 @@
         <br/>
         <br/>
         <div class="container">
-            <div  class="bg-secondary rounded-borders q-pa-md">
+            <div v-if="sections.length>0" class="full-width text-center text-page-header q-my-lg text-white text-bold">
+                Why Choose Us
+            </div>
+
+            <div class="flex justify-center q-gutter-sm items-center">
+                <section v-for="item in sections" :key="item.id">
+                    <div v-html="item?.content"/>
+                </section>
+            </div>
+            <br/>
+            <br/>
+            <div  v-if="stories.length>0" class="bg-secondary rounded-borders q-pa-md">
                 <q-timeline dark color="white">
                     <q-timeline-entry class="text-bold" heading>
                         Our Stories
                     </q-timeline-entry>
 
                     <q-timeline-entry
-                        title="Rising Day"
-                        subtitle="February 22, 2020"
+                        v-for="item in stories"
+                        :title="item?.title"
                     >
                         <div>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            <div v-html="item.content"/>
                         </div>
                     </q-timeline-entry>
                 </q-timeline>
             </div>
 
-            <br/>
-            <br/>
-            <section v-for="item in sections" :key="item.id">
-                <div v-html="item?.content"/>
-            </section>
             <br/>
             <br/>
             <!--        PLANS-->
@@ -147,7 +153,7 @@ defineOptions({
     layout: BackendLayout
 })
 
-const props=defineProps(['sections','plans','questions','testimonial'])
+const props=defineProps(['sections','plans','questions','testimonial','stories'])
 
 </script>
 <style scoped>

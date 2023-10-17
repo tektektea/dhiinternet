@@ -7,6 +7,7 @@ use App\Http\Controllers\PlanController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\StoryController;
 use App\Http\Controllers\TestimonyController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -43,6 +44,7 @@ Route::group(['prefix'=>'admin','middleware' => ['auth']], function () {
     Route::resource('page', PageController::class);
     Route::resource('question', QuestionController::class);
     Route::resource('testimony', TestimonyController::class);
+    Route::resource('story', StoryController::class);
     Route::resource('booking', BookingController::class);
     Route::resource('user', UserController::class);
 });

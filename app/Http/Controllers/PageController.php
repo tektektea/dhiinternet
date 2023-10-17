@@ -6,6 +6,7 @@ use App\Models\Page;
 use App\Models\Plan;
 use App\Models\Question;
 use App\Models\Section;
+use App\Models\Story;
 use App\Models\Testimony;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,8 @@ class PageController extends Controller
             'plans' => Plan::query()->get(),
             'questions'=>Question::query()->get(),
             'testimonial' => Testimony::query()->get(),
+            'stories' => Story::query()->get(),
+
 
         ]);
     }
