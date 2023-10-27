@@ -81,9 +81,9 @@
 
             <br/>
             <br/>
-            <div v-if="sections.length>0" class="full-width text-center text-page-header q-my-lg text-white text-bold">
-                Why Choose Us
-            </div>
+<!--            <div v-if="sections.length>0" class="full-width text-center text-page-header q-my-lg text-white text-bold">-->
+<!--                Why Choose Us-->
+<!--            </div>-->
 
             <div class="flex justify-center q-gutter-sm items-center">
                 <section v-for="item in sections" :key="item.id">
@@ -94,15 +94,15 @@
             <br/>
 
             <!--        PLANS-->
-            <div class="full-width text-center text-page-header q-my-lg text-white text-bold">
-               Our Plans
-            </div>
-            <br/>
-            <section class="row q-col-gutter-md" >
-                <div v-for="item in plans" :key="item.id" class="col-xs-12 col-sm-4">
-                    <div v-html="item?.card"/>
-                </div>
-            </section>
+<!--            <div class="full-width text-center text-page-header q-my-lg text-white text-bold">-->
+<!--               Our Plans-->
+<!--            </div>-->
+<!--            <br/>-->
+<!--            <section class="row q-col-gutter-md" >-->
+<!--                <div v-for="item in plans" :key="item.id" class="col-xs-12 col-sm-4">-->
+<!--                    <div v-html="item?.card"/>-->
+<!--                </div>-->
+<!--            </section>-->
             <!--        TESTIMONIAL-->
             <div class="full-width text-center text-page-header q-my-lg text-white text-bold">
                 Testimonial
