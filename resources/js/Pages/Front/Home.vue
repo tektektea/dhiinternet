@@ -103,25 +103,25 @@
 <!--                    <div v-html="item?.card"/>-->
 <!--                </div>-->
 <!--            </section>-->
-            <!--        TESTIMONIAL-->
-            <div class="full-width text-center text-page-header q-my-lg text-white text-bold">
-                Testimonial
-            </div>
-            <div class="row q-col-gutter-md">
-                <div v-for="item in testimonial" class="col-xs-6 col-sm-3">
-                    <div class="column items-center">
-                        <q-avatar>
-                            <q-img :src="item.url"/>
-                        </q-avatar>
-                        <div v-html="item.content"/>
-                    </div>
+<!--            &lt;!&ndash;        TESTIMONIAL&ndash;&gt;-->
+<!--            <div class="full-width text-center text-page-header q-my-lg text-white text-bold">-->
+<!--                Testimonial-->
+<!--            </div>-->
+<!--            <div class="row q-col-gutter-md">-->
+<!--                <div v-for="item in testimonial" class="col-xs-6 col-sm-3">-->
+<!--                    <div class="column items-center">-->
+<!--                        <q-avatar>-->
+<!--                            <q-img :src="item.url"/>-->
+<!--                        </q-avatar>-->
+<!--                        <div v-html="item.content"/>-->
+<!--                    </div>-->
 
-                </div>
+<!--                </div>-->
 
-            </div>
-            <br/>
-            <br/>
-            <br/>
+<!--            </div>-->
+<!--            <br/>-->
+<!--            <br/>-->
+<!--            <br/>-->
             <!--        PLANS-->
 
 

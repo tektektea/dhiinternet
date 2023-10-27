@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="flex  q-gutter-md <">
-                    <q-btn  @click="$inertia.get(route('page.edit',item.id))" outline color="secondary" label="Edit"/>
+                    <q-btn  @click="$inertia.get(route('story.edit',item.id))" outline color="secondary" label="Edit"/>
                     <q-btn @click="handleDelete(item)" color="negative" outline label="Delete"/>
                 </div>
             </div>
