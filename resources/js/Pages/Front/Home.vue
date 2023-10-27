@@ -85,11 +85,9 @@
 <!--                Why Choose Us-->
 <!--            </div>-->
 
-            <div class="flex justify-center q-gutter-sm items-center">
                 <section v-for="item in sections" :key="item.id">
                     <div v-html="item?.content"/>
                 </section>
-            </div>
             <br/>
             <br/>
 
@@ -123,6 +121,7 @@
 <!--            <br/>-->
 <!--            <br/>-->
             <!--        PLANS-->
+
 
 
             <br/>
