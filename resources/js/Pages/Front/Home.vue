@@ -8,13 +8,9 @@
             <div class="col-xs-12 col-sm-6">
                 <div class="flex justify-end">
                     <div class="q-pa-md relative-position">
-                        <video v-if="$q.screen.lt.sm" style="z-index: 1" class="absolute-top " width="320" loop autoplay>
-                            <source src="https://github.githubassets.com/images/modules/site/home/globe-500.h264.mp4" type="video/mp4" />
-                            <p>
-                                Your browser doesn't support HTML video. Here is a
-                                <a href="https://github.githubassets.com/images/modules/site/home/globe-500.h264.mp4">link to the video</a> instead.
-                            </p>
-                        </video>
+                        <div v-if="$q.screen.lt.sm" style="z-index: 1" class="absolute-top ">
+                            <img width="420" ratio="1" src="https://dhipublic-bucket.s3.ap-south-1.amazonaws.com/Logo(1).svg"/>
+                        </div>
                         <br/>
                         <br/>
                         <br/>
@@ -48,13 +44,8 @@
             <div class="col-xs-6">
                 <div v-if="$q.screen.gt.sm" class="relative-position">
 
-                    <video width="550" loop autoplay>
-                        <source src="https://github.githubassets.com/images/modules/site/home/globe-500.h264.mp4" type="video/mp4" />
-                        <p>
-                            Your browser doesn't support HTML video. Here is a
-                            <a href="https://github.githubassets.com/images/modules/site/home/globe-500.h264.mp4">link to the video</a> instead.
-                        </p>
-                    </video>
+                    <img ratio="1" width="520"  src="https://dhipublic-bucket.s3.ap-south-1.amazonaws.com/Logo(1).svg"/>
+
                 </div>
             </div>
         </div>
