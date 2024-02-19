@@ -22,7 +22,7 @@
         <div class="flex justify-between footer-card container text-lg text-grey-7">
 
             <div class=" text-weight-medium footer-link">
-                © 2023 dhiinternet. All rights reserved.
+                © 2023 Darhawni Business Enterprise. All rights reserved.
             </div>
             <div class="flex q-gutter-md">
                 <a :href="route('page.privacy')" class="footer-link">Privacy</a>
